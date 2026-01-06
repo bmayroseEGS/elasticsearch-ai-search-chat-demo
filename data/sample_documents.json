@@ -1,0 +1,532 @@
+[
+  {
+    "id": "laptop-001",
+    "name": "Dell XPS 15 9530",
+    "category": "Laptops",
+    "price": 1899.99,
+    "description": "Premium 15-inch laptop with stunning OLED display, powerful Intel Core i7 processor, and NVIDIA RTX 4050 graphics. Perfect for creative professionals and developers who need portable power.",
+    "specifications": {
+      "processor": "Intel Core i7-13700H",
+      "ram": "32GB DDR5",
+      "storage": "1TB NVMe SSD",
+      "display": "15.6-inch 3.5K OLED touchscreen",
+      "graphics": "NVIDIA GeForce RTX 4050 6GB",
+      "battery": "86 WHr",
+      "weight": "4.23 lbs"
+    },
+    "features": ["Thunderbolt 4", "Wi-Fi 6E", "Backlit keyboard", "Windows 11 Pro"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 342,
+      "summary": "Excellent build quality and stunning display. Great for coding and content creation."
+    }
+  },
+  {
+    "id": "laptop-002",
+    "name": "MacBook Pro 16-inch M3 Pro",
+    "category": "Laptops",
+    "price": 2499.00,
+    "description": "Apple's flagship laptop with revolutionary M3 Pro chip delivers incredible performance and all-day battery life. Ideal for video editing, 3D rendering, and software development.",
+    "specifications": {
+      "processor": "Apple M3 Pro (12-core CPU)",
+      "ram": "36GB Unified Memory",
+      "storage": "512GB SSD",
+      "display": "16.2-inch Liquid Retina XDR (3456x2234)",
+      "graphics": "18-core GPU",
+      "battery": "100 WHr (up to 22 hours)",
+      "weight": "4.7 lbs"
+    },
+    "features": ["MagSafe 3", "6 Thunderbolt 4 ports", "1080p FaceTime camera", "Studio-quality mics"],
+    "reviews": {
+      "rating": 4.9,
+      "count": 567,
+      "summary": "Best laptop for developers and creatives. Battery life is incredible."
+    }
+  },
+  {
+    "id": "laptop-003",
+    "name": "Lenovo ThinkPad X1 Carbon Gen 11",
+    "category": "Laptops",
+    "price": 1649.99,
+    "description": "Business ultrabook with legendary ThinkPad keyboard, enterprise-grade security, and impressive portability. Perfect for professionals who travel frequently.",
+    "specifications": {
+      "processor": "Intel Core i7-1365U",
+      "ram": "16GB LPDDR5",
+      "storage": "512GB NVMe SSD",
+      "display": "14-inch 2.8K OLED (2880x1800)",
+      "graphics": "Intel Iris Xe",
+      "battery": "57 WHr",
+      "weight": "2.48 lbs"
+    },
+    "features": ["4G LTE option", "IR camera with Windows Hello", "MIL-STD-810H tested", "TrackPoint"],
+    "reviews": {
+      "rating": 4.6,
+      "count": 289,
+      "summary": "Best keyboard on any laptop. Ultra portable and durable."
+    }
+  },
+  {
+    "id": "laptop-004",
+    "name": "ASUS ROG Strix G16",
+    "category": "Laptops",
+    "price": 1799.99,
+    "description": "Gaming powerhouse with high-refresh display and latest NVIDIA graphics. Ideal for gamers and content creators who demand maximum performance.",
+    "specifications": {
+      "processor": "Intel Core i9-13980HX",
+      "ram": "32GB DDR5",
+      "storage": "1TB NVMe SSD",
+      "display": "16-inch QHD+ 240Hz (2560x1600)",
+      "graphics": "NVIDIA GeForce RTX 4070 8GB",
+      "battery": "90 WHr",
+      "weight": "5.51 lbs"
+    },
+    "features": ["RGB keyboard", "Advanced cooling", "Dolby Atmos", "2.5G Ethernet"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 412,
+      "summary": "Excellent gaming performance and great for 3D work. Runs cool under load."
+    }
+  },
+  {
+    "id": "laptop-005",
+    "name": "Microsoft Surface Laptop 5",
+    "category": "Laptops",
+    "price": 1299.99,
+    "description": "Elegant 2-in-1 laptop with premium touchscreen and Surface Pen support. Perfect for designers and students who value versatility.",
+    "specifications": {
+      "processor": "Intel Core i7-1255U",
+      "ram": "16GB LPDDR5x",
+      "storage": "512GB SSD",
+      "display": "13.5-inch PixelSense (2256x1504) touchscreen",
+      "graphics": "Intel Iris Xe",
+      "battery": "Up to 18 hours",
+      "weight": "2.8 lbs"
+    },
+    "features": ["Surface Pen support", "Alcantara keyboard", "Windows 11", "Thunderbolt 4"],
+    "reviews": {
+      "rating": 4.5,
+      "count": 234,
+      "summary": "Beautiful design and great build quality. Touchscreen is very responsive."
+    }
+  },
+  {
+    "id": "laptop-006",
+    "name": "HP Spectre x360 14",
+    "category": "Laptops",
+    "price": 1449.99,
+    "description": "Convertible laptop with gem-cut design and brilliant OLED display. Great for business professionals who need flexibility.",
+    "specifications": {
+      "processor": "Intel Core i7-1355U",
+      "ram": "16GB LPDDR4x",
+      "storage": "1TB NVMe SSD",
+      "display": "13.5-inch 3K2K OLED touchscreen (3000x2000)",
+      "graphics": "Intel Iris Xe",
+      "battery": "66 WHr",
+      "weight": "3.01 lbs"
+    },
+    "features": ["360-degree hinge", "HP Pen included", "Privacy camera", "Bang & Olufsen audio"],
+    "reviews": {
+      "rating": 4.6,
+      "count": 198,
+      "summary": "Premium feel and excellent display. Versatile 2-in-1 design is very useful."
+    }
+  },
+  {
+    "id": "laptop-007",
+    "name": "Acer Swift 3",
+    "category": "Laptops",
+    "price": 749.99,
+    "description": "Affordable productivity laptop with solid performance and good battery life. Excellent choice for students and budget-conscious professionals.",
+    "specifications": {
+      "processor": "AMD Ryzen 7 5700U",
+      "ram": "16GB LPDDR4x",
+      "storage": "512GB NVMe SSD",
+      "display": "14-inch Full HD IPS (1920x1080)",
+      "graphics": "AMD Radeon Graphics",
+      "battery": "56 WHr",
+      "weight": "2.65 lbs"
+    },
+    "features": ["Backlit keyboard", "Fingerprint reader", "Wi-Fi 6", "USB-C"],
+    "reviews": {
+      "rating": 4.3,
+      "count": 521,
+      "summary": "Great value for money. Good performance for everyday tasks."
+    }
+  },
+  {
+    "id": "laptop-008",
+    "name": "Razer Blade 15",
+    "category": "Laptops",
+    "price": 2299.99,
+    "description": "Ultra-thin gaming laptop with premium aluminum chassis and desktop-class performance. Perfect for gamers who refuse to compromise on portability.",
+    "specifications": {
+      "processor": "Intel Core i7-13800H",
+      "ram": "32GB DDR5",
+      "storage": "1TB NVMe SSD",
+      "display": "15.6-inch QHD 240Hz (2560x1440)",
+      "graphics": "NVIDIA GeForce RTX 4070 8GB",
+      "battery": "80 WHr",
+      "weight": "4.4 lbs"
+    },
+    "features": ["Per-key RGB keyboard", "Vapor chamber cooling", "THX Spatial Audio", "Thunderbolt 4"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 387,
+      "summary": "Sleek design with serious gaming power. Best thin gaming laptop available."
+    }
+  },
+  {
+    "id": "laptop-009",
+    "name": "LG Gram 17",
+    "category": "Laptops",
+    "price": 1599.99,
+    "description": "Ultra-lightweight 17-inch laptop that defies physics with incredible portability. Ideal for users who need maximum screen real estate without the weight.",
+    "specifications": {
+      "processor": "Intel Core i7-1360P",
+      "ram": "16GB LPDDR5",
+      "storage": "1TB NVMe SSD",
+      "display": "17-inch WQXGA IPS (2560x1600)",
+      "graphics": "Intel Iris Xe",
+      "battery": "80 WHr (up to 19 hours)",
+      "weight": "2.98 lbs"
+    },
+    "features": ["MIL-STD-810G tested", "Thunderbolt 4", "DTS:X Ultra audio", "Backlit keyboard"],
+    "reviews": {
+      "rating": 4.5,
+      "count": 276,
+      "summary": "Incredibly light for a 17-inch laptop. Great for productivity on the go."
+    }
+  },
+  {
+    "id": "laptop-010",
+    "name": "Framework Laptop 13",
+    "category": "Laptops",
+    "price": 1049.99,
+    "description": "Revolutionary modular laptop that's fully repairable and upgradeable. Perfect for tech enthusiasts and environmentally conscious users.",
+    "specifications": {
+      "processor": "Intel Core i5-1340P",
+      "ram": "16GB DDR4 (upgradeable)",
+      "storage": "512GB NVMe SSD (upgradeable)",
+      "display": "13.5-inch 2256x1504 IPS",
+      "graphics": "Intel Iris Xe",
+      "battery": "55 WHr",
+      "weight": "2.87 lbs"
+    },
+    "features": ["Modular ports", "User-repairable", "Open-source firmware", "Expansion cards"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 453,
+      "summary": "Finally, a laptop you can actually repair! Great concept and solid execution."
+    }
+  },
+  {
+    "id": "monitor-001",
+    "name": "Dell UltraSharp U2723DE",
+    "category": "Monitors",
+    "price": 579.99,
+    "description": "Professional 27-inch QHD monitor with exceptional color accuracy and USB-C connectivity. Perfect for designers and photographers.",
+    "specifications": {
+      "size": "27 inches",
+      "resolution": "2560x1440 (QHD)",
+      "panel_type": "IPS Black",
+      "refresh_rate": "60Hz",
+      "color_gamut": "99% sRGB, 95% DCI-P3",
+      "brightness": "400 nits",
+      "contrast": "2000:1"
+    },
+    "features": ["USB-C hub (90W power delivery)", "ComfortView Plus", "Height-adjustable stand", "VESA mount"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 342,
+      "summary": "Excellent color accuracy out of the box. Great for professional work."
+    }
+  },
+  {
+    "id": "monitor-002",
+    "name": "LG 34WN80C-B UltraWide",
+    "category": "Monitors",
+    "price": 449.99,
+    "description": "34-inch curved ultrawide monitor with USB-C for enhanced productivity. Ideal for multitasking and immersive work experiences.",
+    "specifications": {
+      "size": "34 inches",
+      "resolution": "3440x1440 (UWQHD)",
+      "panel_type": "IPS",
+      "refresh_rate": "60Hz",
+      "color_gamut": "99% sRGB",
+      "brightness": "300 nits",
+      "contrast": "1000:1",
+      "curvature": "1900R"
+    },
+    "features": ["USB-C (60W PD)", "HDR10", "AMD FreeSync", "OnScreen Control"],
+    "reviews": {
+      "rating": 4.6,
+      "count": 528,
+      "summary": "Great for productivity. The ultrawide format is a game-changer for workflow."
+    }
+  },
+  {
+    "id": "monitor-003",
+    "name": "ASUS ROG Swift PG279QM",
+    "category": "Monitors",
+    "price": 699.99,
+    "description": "Premium 27-inch gaming monitor with blazing-fast 240Hz refresh rate and G-SYNC. Perfect for competitive gamers.",
+    "specifications": {
+      "size": "27 inches",
+      "resolution": "2560x1440 (QHD)",
+      "panel_type": "Fast IPS",
+      "refresh_rate": "240Hz",
+      "response_time": "1ms GTG",
+      "color_gamut": "94% DCI-P3",
+      "brightness": "400 nits",
+      "contrast": "1000:1"
+    },
+    "features": ["NVIDIA G-SYNC", "HDR600", "ELMB Sync", "Ergonomic stand"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 412,
+      "summary": "Buttery smooth gaming experience. Colors are vibrant and motion is crisp."
+    }
+  },
+  {
+    "id": "monitor-004",
+    "name": "BenQ PD3220U",
+    "category": "Monitors",
+    "price": 1099.99,
+    "description": "32-inch 4K monitor designed for creative professionals with hardware calibration. Ideal for video editing and photo work.",
+    "specifications": {
+      "size": "32 inches",
+      "resolution": "3840x2160 (4K UHD)",
+      "panel_type": "IPS",
+      "refresh_rate": "60Hz",
+      "color_gamut": "100% sRGB, 95% P3",
+      "brightness": "400 nits",
+      "contrast": "1000:1"
+    },
+    "features": ["Hardware calibration", "Thunderbolt 3", "KVM switch", "Hotkey Puck G2"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 187,
+      "summary": "Excellent for professional content creation. Calibration tools are top-notch."
+    }
+  },
+  {
+    "id": "monitor-005",
+    "name": "Samsung Odyssey G9",
+    "category": "Monitors",
+    "price": 1299.99,
+    "description": "Massive 49-inch super ultrawide curved gaming monitor with dual QHD resolution. Ultimate immersion for gaming and productivity.",
+    "specifications": {
+      "size": "49 inches",
+      "resolution": "5120x1440 (Dual QHD)",
+      "panel_type": "VA",
+      "refresh_rate": "240Hz",
+      "response_time": "1ms",
+      "color_gamut": "95% DCI-P3",
+      "brightness": "1000 nits",
+      "contrast": "2500:1",
+      "curvature": "1000R"
+    },
+    "features": ["NVIDIA G-SYNC Compatible", "HDR1000", "QLED", "CoreSync lighting"],
+    "reviews": {
+      "rating": 4.6,
+      "count": 634,
+      "summary": "Incredible immersion. Like having two monitors without bezels."
+    }
+  },
+  {
+    "id": "keyboard-001",
+    "name": "Keychron Q1 Pro",
+    "category": "Accessories",
+    "price": 189.00,
+    "description": "Premium wireless mechanical keyboard with hot-swappable switches and full customization. Perfect for enthusiasts and developers.",
+    "specifications": {
+      "switch_type": "Gateron G Pro (hot-swappable)",
+      "layout": "75% (84 keys)",
+      "connection": "Wireless (2.4GHz + Bluetooth) or Wired USB-C",
+      "battery": "4000 mAh (up to 100 hours)",
+      "material": "CNC aluminum body"
+    },
+    "features": ["QMK/VIA support", "RGB backlighting", "Rotary encoder", "Mac and Windows compatible"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 523,
+      "summary": "Best wireless mechanical keyboard. Build quality is exceptional."
+    }
+  },
+  {
+    "id": "keyboard-002",
+    "name": "Logitech MX Keys",
+    "category": "Accessories",
+    "price": 99.99,
+    "description": "Premium wireless keyboard with smart illumination and multi-device support. Ideal for professionals who work across multiple computers.",
+    "specifications": {
+      "switch_type": "Low-profile scissor switches",
+      "layout": "Full-size (104 keys)",
+      "connection": "Wireless (Bluetooth or USB receiver)",
+      "battery": "Rechargeable (up to 10 days with backlight)",
+      "material": "Metal plate"
+    },
+    "features": ["Multi-device (3 devices)", "Smart backlighting", "USB-C charging", "Logitech Flow"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 892,
+      "summary": "Excellent typing experience. Perfect for office work and coding."
+    }
+  },
+  {
+    "id": "mouse-001",
+    "name": "Logitech MX Master 3S",
+    "category": "Accessories",
+    "price": 99.99,
+    "description": "Flagship ergonomic mouse with ultra-precise scrolling and customizable buttons. The ultimate productivity tool.",
+    "specifications": {
+      "sensor": "8000 DPI Darkfield",
+      "connection": "Wireless (Bluetooth or USB receiver)",
+      "battery": "Rechargeable (up to 70 days)",
+      "buttons": "7 customizable"
+    },
+    "features": ["MagSpeed scroll wheel", "Side scroll wheel", "Multi-device (3 devices)", "Silent clicks"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 1234,
+      "summary": "Best productivity mouse available. Ergonomics and features are unmatched."
+    }
+  },
+  {
+    "id": "mouse-002",
+    "name": "Razer DeathAdder V3 Pro",
+    "category": "Accessories",
+    "price": 149.99,
+    "description": "Wireless gaming mouse with Focus Pro 30K sensor and ultra-lightweight design. Perfect for competitive gaming.",
+    "specifications": {
+      "sensor": "30000 DPI Focus Pro",
+      "connection": "Wireless (HyperSpeed 2.4GHz or Bluetooth) or Wired",
+      "battery": "Up to 90 hours",
+      "weight": "63g",
+      "buttons": "5 programmable"
+    },
+    "features": ["Gen-3 optical switches", "HyperPolling (4000Hz)", "Razer Synapse", "Ergonomic shape"],
+    "reviews": {
+      "rating": 4.9,
+      "count": 687,
+      "summary": "Incredibly precise and lightweight. Best gaming mouse for FPS games."
+    }
+  },
+  {
+    "id": "webcam-001",
+    "name": "Logitech Brio 4K Pro",
+    "category": "Accessories",
+    "price": 199.99,
+    "description": "Professional 4K webcam with HDR and Windows Hello support. Ideal for remote workers and content creators.",
+    "specifications": {
+      "resolution": "4K UHD (3840x2160) at 30fps",
+      "field_of_view": "65°, 78°, or 90° adjustable",
+      "autofocus": "RightLight 3 with HDR",
+      "microphones": "Dual omnidirectional"
+    },
+    "features": ["Windows Hello facial recognition", "5x digital zoom", "Adjustable mount", "Privacy shutter"],
+    "reviews": {
+      "rating": 4.5,
+      "count": 421,
+      "summary": "Crisp 4K video quality. Great for professional video calls and streaming."
+    }
+  },
+  {
+    "id": "headphones-001",
+    "name": "Sony WH-1000XM5",
+    "category": "Accessories",
+    "price": 399.99,
+    "description": "Industry-leading noise-canceling headphones with exceptional sound quality. Perfect for travelers and audiophiles.",
+    "specifications": {
+      "driver": "30mm",
+      "frequency_response": "4Hz - 40kHz",
+      "noise_canceling": "Advanced ANC with 8 microphones",
+      "battery": "Up to 30 hours with ANC",
+      "connection": "Bluetooth 5.2, LDAC, AAC"
+    },
+    "features": ["Multi-point connection", "Speak-to-Chat", "DSEE Extreme upscaling", "Touch controls"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 1523,
+      "summary": "Best noise cancellation available. Comfort and sound quality are outstanding."
+    }
+  },
+  {
+    "id": "headphones-002",
+    "name": "Apple AirPods Pro 2nd Gen",
+    "category": "Accessories",
+    "price": 249.00,
+    "description": "Premium wireless earbuds with adaptive transparency and personalized spatial audio. Seamless integration with Apple devices.",
+    "specifications": {
+      "driver": "Custom Apple driver",
+      "noise_canceling": "Active ANC with Adaptive Transparency",
+      "battery": "6 hours (30 hours with case)",
+      "connection": "Bluetooth 5.3, Apple H2 chip"
+    },
+    "features": ["Personalized Spatial Audio", "Touch controls", "Find My support", "MagSafe charging"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 2341,
+      "summary": "Best earbuds for iPhone users. ANC and sound quality are excellent."
+    }
+  },
+  {
+    "id": "dock-001",
+    "name": "CalDigit TS4 Thunderbolt 4 Dock",
+    "category": "Accessories",
+    "price": 399.99,
+    "description": "Ultimate Thunderbolt 4 dock with 18 ports and 98W power delivery. Perfect for power users with complex setups.",
+    "specifications": {
+      "ports": "18 total (3x Thunderbolt 4, 5x USB-A, USB-C, DisplayPort, etc.)",
+      "power_delivery": "98W to host",
+      "display_support": "Dual 6K or single 8K",
+      "ethernet": "2.5 Gigabit"
+    },
+    "features": ["SD card reader", "3.5mm audio", "Backwards compatible", "Universal compatibility"],
+    "reviews": {
+      "rating": 4.6,
+      "count": 287,
+      "summary": "Most comprehensive dock available. Works flawlessly with Mac and PC."
+    }
+  },
+  {
+    "id": "storage-001",
+    "name": "Samsung T7 Portable SSD 2TB",
+    "category": "Accessories",
+    "price": 179.99,
+    "description": "Fast and compact portable SSD with hardware encryption. Perfect for backing up important data and transferring large files.",
+    "specifications": {
+      "capacity": "2TB",
+      "interface": "USB 3.2 Gen 2 (10Gbps)",
+      "read_speed": "Up to 1050 MB/s",
+      "write_speed": "Up to 1000 MB/s",
+      "encryption": "AES 256-bit hardware"
+    },
+    "features": ["Shock-resistant", "Compact design", "Password protection", "3-year warranty"],
+    "reviews": {
+      "rating": 4.7,
+      "count": 1876,
+      "summary": "Incredibly fast and portable. Great for video editors and photographers."
+    }
+  },
+  {
+    "id": "storage-002",
+    "name": "WD Black SN850X NVMe SSD 2TB",
+    "category": "Accessories",
+    "price": 199.99,
+    "description": "High-performance PCIe 4.0 NVMe SSD for gaming and content creation. Maximum speed for demanding workloads.",
+    "specifications": {
+      "capacity": "2TB",
+      "interface": "PCIe 4.0 x4 NVMe",
+      "read_speed": "Up to 7300 MB/s",
+      "write_speed": "Up to 6600 MB/s",
+      "form_factor": "M.2 2280"
+    },
+    "features": ["Game Mode 2.0", "Heatsink option", "5-year warranty", "TLC NAND"],
+    "reviews": {
+      "rating": 4.8,
+      "count": 945,
+      "summary": "Blazing fast load times. Perfect for gaming and video editing."
+    }
+  }
+]
