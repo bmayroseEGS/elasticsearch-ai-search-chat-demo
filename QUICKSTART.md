@@ -1,170 +1,230 @@
 # Quick Start Guide
 
-Get up and running with the AI-Powered Search and Chat workshop in 15 minutes!
+Get up and running with ELSER-powered search in 10 minutes!
 
 ## Prerequisites
 
-1. **Elasticsearch & Kibana** running (see [PREREQUISITES.md](PREREQUISITES.md))
+1. **Elasticsearch 8.8+** running (see [PREREQUISITES.md](PREREQUISITES.md))
 2. **Python 3.8+** installed
-3. **OpenAI API key** with credits
+
+**That's it!** No API keys needed for Part 1.
 
 ## 5-Minute Setup
 
-### 1. Create Configuration
+### 1. Clone and Configure
 
 ```bash
+# Clone repository
+cd ~/dev/elasticsearch-ai-search-chat-demo
+
 # Copy example config
 cp config.example.py config.py
 
-# Edit with your credentials
-# - Add Elasticsearch URL (default: http://localhost:9200)
-# - Add OpenAI API key
+# Edit config.py with your Elasticsearch credentials
+# Default works for local helm deployment:
+#   ELASTICSEARCH_URL = "http://localhost:9200"
+#   ELASTICSEARCH_USERNAME = "elastic"
+#   ELASTICSEARCH_PASSWORD = "elastic"
 ```
 
 ### 2. Install Dependencies
 
 ```bash
-# Recommended: Create virtual environment
+# Create virtual environment (recommended)
 python3 -m venv venv
 source venv/bin/activate  # On macOS/Linux
 # venv\Scripts\activate   # On Windows
 
-# Install packages
+# Install packages (no OpenAI needed!)
 pip install -r requirements.txt
 ```
 
-### 3. Run Setup Script
+### 3. Run Part 1 - Smart Search
 
 ```bash
-./scripts/setup-environment.sh
+# Step 1: Setup ELSER (downloads model, ~2-5 minutes first time)
+python part1_smart_search/01_setup_index.py
+
+# Step 2: Load sample data (~2-3 minutes for 500 products)
+python part1_smart_search/02_ingest_data.py
+
+# Step 3: Try it out!
+python part1_smart_search/03_semantic_search.py "laptop for programming"
 ```
 
-This script will:
-- Create the Elasticsearch index with vector mappings
-- Generate embeddings for sample products (~$0.05)
-- Index all documents
-- Verify everything is ready
-
-**Total time:** ~5 minutes (depending on internet speed)
+**Total time:** ~5-8 minutes
 
 ## Try It Out
 
-### Part 1: Smart Search (2 minutes)
+### Semantic Search (Natural Language)
 
-**Keyword Search (BM25):**
 ```bash
-python3 part1_smart_search/03_keyword_search.py "MacBook Pro"
+# Intent-based
+python part1_smart_search/03_semantic_search.py "laptop for programming and video editing"
+
+# Conceptual
+python part1_smart_search/03_semantic_search.py "affordable portable computer for developers"
+
+# Use-case
+python part1_smart_search/03_semantic_search.py "equipment for remote work"
 ```
 
-**Semantic Search (Vectors):**
+### Keyword Search (Exact Terms)
+
 ```bash
-python3 part1_smart_search/04_semantic_search.py "portable computer for programming"
+# Specific models
+python part1_smart_search/04_keyword_search.py "Dell XPS"
+
+# Technical specs
+python part1_smart_search/04_keyword_search.py "SSD NVMe"
 ```
 
-**Hybrid Search (Best Results):**
+### Hybrid Search (Best Results!)
+
 ```bash
-python3 part1_smart_search/05_hybrid_search.py "affordable gaming laptop"
+# Combines meaning + exact terms
+python part1_smart_search/05_hybrid_search.py "Dell laptop for machine learning under $2000"
 ```
 
-### Part 2: Conversational AI (5 minutes)
+## Optional: Part 2 - Conversational AI
 
-**Basic RAG Chatbot:**
+For the chatbot, you'll need OpenAI API key:
+
+### 1. Install OpenAI
+
 ```bash
-python3 part2_conversational_ai/01_basic_rag.py
+pip install openai
 ```
 
-Try asking: "What laptops do you have for video editing?"
+### 2. Add API Key
 
-**Chat with Memory:**
-```bash
-python3 part2_conversational_ai/02_context_chat.py
+Edit `config.py`:
+```python
+OPENAI_API_KEY = "sk-your-api-key-here"
 ```
 
-Try this conversation:
-1. "Show me gaming laptops"
-2. "Which one has the best GPU?"
-3. "How much does it cost?"
+Get key from: https://platform.openai.com/api-keys
 
-**Controlled Responses:**
+### 3. Run RAG Chatbot
+
 ```bash
-python3 part2_conversational_ai/03_controlled_responses.py
+python part2_conversational_ai/01_basic_rag.py "What laptops do you have for video editing?"
 ```
-
-Choose option 1 to see automated test scenarios.
 
 ## Common Issues
 
 ### "Could not connect to Elasticsearch"
 
-**Check:**
+**Check if Elasticsearch is running:**
 ```bash
-# Is Elasticsearch running?
 curl http://localhost:9200
+```
 
-# Are port-forwards active? (if using Kubernetes)
+**If using kubectl:**
+```bash
+kubectl get pods -n elastic
 kubectl port-forward -n elastic svc/elasticsearch-master 9200:9200 &
 ```
 
-### "Invalid API key" (OpenAI)
+**Verify credentials** in `config.py`
 
-**Fix:**
-1. Get a new key: https://platform.openai.com/api-keys
-2. Update `config.py` with the new key
-3. Ensure you have credits: https://platform.openai.com/account/billing
+### "ELSER model not ready"
+
+First-time setup downloads the model (~2-5 minutes).
+
+**Check status:**
+```bash
+curl http://localhost:9200/_ml/trained_models/.elser_model_2/_stats
+```
+
+Look for `"state": "started"`
 
 ### "ModuleNotFoundError"
 
-**Fix:**
+**Activate virtual environment:**
 ```bash
-# Make sure virtual environment is activated
-source venv/bin/activate
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
+```
 
-# Reinstall dependencies
+**Reinstall dependencies:**
+```bash
 pip install -r requirements.txt
 ```
 
 ## Cost Estimate
 
-For the complete workshop:
+### Part 1 (ELSER Search)
+- **Infrastructure**: Elasticsearch only
+- **API costs**: $0 (ELSER runs in Elasticsearch)
 
-- **Embeddings** (500 products): ~$0.01 - $0.05
-- **Search queries** (20 queries): ~$0.01
-- **Chat interactions** (20 messages): ~$0.10 - $0.50
+### Part 2 (Conversational AI) - Optional
+- **Search**: $0 (uses ELSER)
+- **LLM responses** (20 messages): ~$0.10 - $0.50
+- **Total**: Under $1 for entire workshop
 
-**Total: Under $1** for the entire workshop
+## What's Different from Other Tutorials?
+
+✅ **No API keys for search** - ELSER runs in Elasticsearch
+✅ **No per-query costs** - Only infrastructure
+✅ **Semantic understanding** - Built-in, no external service
+✅ **Lower latency** - No external API calls
+✅ **Simpler setup** - Start with just Elasticsearch
+
+## Project Structure
+
+```
+part1_smart_search/
+├── 01_setup_index.py      # Setup ELSER (run once)
+├── 02_ingest_data.py       # Load sample data (run once)
+├── 03_semantic_search.py   # Try semantic search
+├── 04_keyword_search.py    # Try keyword search
+└── 05_hybrid_search.py     # Try hybrid search
+
+part2_conversational_ai/
+└── 01_basic_rag.py         # RAG chatbot (needs OpenAI)
+```
 
 ## Next Steps
 
-1. **Read the main README.md** for detailed explanations
-2. **Review [PREREQUISITES.md](PREREQUISITES.md)** for infrastructure details
-3. **Experiment** with your own queries and data
-4. **Modify** the sample dataset in `data/sample_documents.json`
-5. **Customize** prompts and search parameters in `config.py`
+1. **Try different queries** - See how ELSER understands meaning
+2. **Compare search methods** - Run same query with 03, 04, 05
+3. **Read [README.md](README.md)** - Understand how it works
+4. **Explore [ELSER_SETUP.md](ELSER_SETUP.md)** - Deep dive on ELSER
+5. **Modify data** - Edit `data/sample_documents.json`
 
-## Reset and Start Over
+## Alternative: Use OpenAI Embeddings
 
-To delete everything and start fresh:
+Want to use OpenAI instead of ELSER?
 
-```bash
-./scripts/reset-environment.sh
-./scripts/setup-environment.sh
-```
+See [examples/openai_alternative/README.md](examples/openai_alternative/README.md) for:
+- When to use OpenAI vs ELSER
+- How to switch to OpenAI embeddings
+- Multi-language support
+- Cross-modal search
 
 ## Getting Help
 
-- **Elasticsearch issues**: Check [PREREQUISITES.md](PREREQUISITES.md)
-- **OpenAI issues**: https://platform.openai.com/docs
-- **Python issues**: Verify Python 3.8+ with `python3 --version`
+**Elasticsearch connection issues:**
+- Check [PREREQUISITES.md](PREREQUISITES.md)
+- Verify version: `curl http://localhost:9200`
+
+**ELSER issues:**
+- See [ELSER_SETUP.md](ELSER_SETUP.md)
+- Check ML nodes: `curl http://localhost:9200/_cat/ml/nodes?v`
+
+**OpenAI issues (Part 2 only):**
+- Verify API key: https://platform.openai.com/api-keys
+- Check credits: https://platform.openai.com/account/billing
 
 ## What You'll Learn
 
-By the end of this workshop, you'll understand:
+By the end of this workshop:
 
-✅ How to set up vector search in Elasticsearch
+✅ How ELSER provides semantic search without API keys
 ✅ Difference between keyword, semantic, and hybrid search
+✅ How hybrid search (RRF) combines the best of both
 ✅ How to implement RAG to prevent AI hallucinations
-✅ How to build conversational AI with memory
-✅ How to control AI behavior with prompt engineering
-✅ Memory optimization with scalar quantization
+✅ When to use ELSER vs OpenAI embeddings
 
 Enjoy the workshop! 🚀
