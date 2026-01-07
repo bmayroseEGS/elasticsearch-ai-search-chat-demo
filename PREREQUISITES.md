@@ -269,7 +269,8 @@ pip install sentence-transformers
 **Elasticsearch ELSER (Elastic's Model):**
 - No API key needed
 - Runs within Elasticsearch
-- See [ELSER documentation](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html)
+- Automated setup available - see [ELSER_SETUP.md](ELSER_SETUP.md)
+- Reference: [ELSER documentation](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html)
 
 ---
 
