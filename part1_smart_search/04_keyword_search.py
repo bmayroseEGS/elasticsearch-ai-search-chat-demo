@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
-Part 1 - Step 5: Hybrid Search (Keyword + Semantic)
+Part 1 - Step 4: Traditional Keyword Search (BM25)
 
-This script demonstrates hybrid search - combining keyword (BM25) and semantic (ELSER).
-Uses Reciprocal Rank Fusion (RRF) to merge results from both methods.
+This script demonstrates traditional keyword search using Elasticsearch's BM25 algorithm.
+BM25 matches exact words and phrases - great for specific terms!
 
-Hybrid search typically provides the best results by combining:
-- Keyword precision (exact matches)
-- Semantic understanding (meaning and intent)
+Try queries like:
+- "Dell XPS" (exact model match)
+- "SSD storage" (specific feature)
+- "gaming laptop" (specific product type)
 
-Try any query and compare with steps 3 and 4!
+Compare with semantic search to see the difference!
 """
 
 import sys
@@ -49,34 +50,15 @@ def connect_to_elasticsearch():
 
     return es
 
-def hybrid_search(es, query_text, size=5):
-    """Perform hybrid search using RRF (Reciprocal Rank Fusion)."""
+def keyword_search(es, query_text, size=5):
+    """Perform keyword search using BM25."""
 
     search_query = {
-        "sub_searches": [
-            {
-                "query": {
-                    "sparse_vector": {
-                        "field": "elser_embedding",
-                        "inference_id": config.ELSER_INFERENCE_ID,
-                        "query": query_text
-                    }
-                }
-            },
-            {
-                "query": {
-                    "multi_match": {
-                        "query": query_text,
-                        "fields": ["name^3", "description^2", "features", "category"],
-                        "type": "best_fields"
-                    }
-                }
-            }
-        ],
-        "rank": {
-            "rrf": {
-                "window_size": 50,
-                "rank_constant": config.RRF_RANK_CONSTANT
+        "query": {
+            "multi_match": {
+                "query": query_text,
+                "fields": ["name^3", "description^2", "features", "category"],
+                "type": "best_fields"
             }
         },
         "size": size,
@@ -100,11 +82,7 @@ def display_results(query, response):
     total = response['hits']['total']['value']
 
     # Show query
-    console.print(Panel(
-        f"[bold cyan]Query:[/bold cyan] {query}\n"
-        f"[dim]Combining ELSER (semantic) + BM25 (keyword) with RRF[/dim]",
-        title="Hybrid Search"
-    ))
+    console.print(Panel(f"[bold cyan]Query:[/bold cyan] {query}", title="Keyword Search (BM25)"))
     console.print(f"\nFound {total} results\n")
 
     # Create results table
@@ -135,18 +113,18 @@ def display_results(query, response):
 def main():
     """Main search function."""
     if len(sys.argv) < 2:
-        console.print("\n[bold]Usage:[/bold] python 05_hybrid_search.py \"your search query\"")
+        console.print("\n[bold]Usage:[/bold] python 04_keyword_search.py \"your search query\"")
         console.print("\n[bold]Example queries:[/bold]")
-        console.print("  python 05_hybrid_search.py \"laptop for programming and video editing\"")
-        console.print("  python 05_hybrid_search.py \"Dell XPS with good battery life\"")
-        console.print("  python 05_hybrid_search.py \"affordable monitor for home office\"")
-        console.print("  python 05_hybrid_search.py \"wireless ergonomic keyboard\"")
+        console.print("  python 04_keyword_search.py \"Dell XPS\"")
+        console.print("  python 04_keyword_search.py \"SSD storage\"")
+        console.print("  python 04_keyword_search.py \"gaming laptop\"")
+        console.print("  python 04_keyword_search.py \"USB-C monitor\"")
         console.print()
         sys.exit(1)
 
     query = ' '.join(sys.argv[1:])
 
-    console.print("\n[bold]Part 1 - Step 5: Hybrid Search (Best of Both Worlds)[/bold]\n")
+    console.print("\n[bold]Part 1 - Step 4: Keyword Search (BM25)[/bold]\n")
 
     try:
         # Connect
@@ -161,15 +139,13 @@ def main():
             sys.exit(1)
 
         # Perform search
-        response = hybrid_search(es, query, size=10)
+        response = keyword_search(es, query, size=10)
 
         # Display results
         display_results(query, response)
 
-        console.print("[dim]💡 Tip: Hybrid search combines the best of both methods![/dim]")
-        console.print("[dim]   • ELSER understands meaning and intent[/dim]")
-        console.print("[dim]   • BM25 catches exact terms and model numbers[/dim]")
-        console.print("[dim]   • RRF intelligently merges the results[/dim]\n")
+        console.print("[dim]💡 Tip: Keyword search is great for exact terms![/dim]")
+        console.print("[dim]   Try the same query with 03_semantic_search.py to compare[/dim]\n")
 
         es.close()
 

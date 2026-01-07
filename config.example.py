@@ -25,20 +25,72 @@ ELASTICSEARCH_PASSWORD = "elastic"
 ELASTICSEARCH_VERIFY_CERTS = False
 
 # ============================================================================
-# OpenAI Configuration
+# Embedding Configuration
 # ============================================================================
 
-# OpenAI API key - get from https://platform.openai.com/api-keys
-OPENAI_API_KEY = "sk-your-api-key-here"
-
-# Embedding model
+# Primary embedding method - ELSER (Elasticsearch's built-in semantic search)
+# ELSER runs entirely within Elasticsearch - no external API keys required!
+#
 # Options:
-# - "text-embedding-3-small" (1536 dims, $0.02/1M tokens) - Recommended for workshop
-# - "text-embedding-3-large" (3072 dims, $0.13/1M tokens) - Better quality
-# - "text-embedding-ada-002" (1536 dims, $0.10/1M tokens) - Legacy
-EMBEDDING_MODEL = "text-embedding-3-small"
+# - "elser" - Elasticsearch ELSER v2 (RECOMMENDED - no API keys needed)
+# - "openai" - OpenAI embeddings (requires API key, see below)
+EMBEDDING_METHOD = "elser"
 
-# LLM model for chat
+# ============================================================================
+# ELSER Configuration (Primary Method)
+# ============================================================================
+
+# ELSER model ID (Elasticsearch built-in)
+ELSER_MODEL_ID = ".elser_model_2"
+
+# ELSER inference endpoint ID
+ELSER_INFERENCE_ID = "elser-inference-endpoint"
+
+# Primary index name for ELSER search
+INDEX_NAME = "products-elser-search"
+
+# ELSER ingest pipeline ID
+ELSER_PIPELINE_ID = "elser-ingest-pipeline"
+
+# ============================================================================
+# OpenAI Configuration (Optional Alternative)
+# ============================================================================
+# Only needed if EMBEDDING_METHOD = "openai"
+# Leave blank if using ELSER exclusively
+
+# OpenAI API key - get from https://platform.openai.com/api-keys
+# Set to None if not using OpenAI
+OPENAI_API_KEY = None  # "sk-your-api-key-here" if using OpenAI
+
+# Embedding model (only used if EMBEDDING_METHOD = "openai")
+# Options:
+# - "text-embedding-3-small" (1536 dims, $0.02/1M tokens)
+# - "text-embedding-3-large" (3072 dims, $0.13/1M tokens)
+# - "text-embedding-ada-002" (1536 dims, $0.10/1M tokens) - Legacy
+OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
+
+# Vector field dimensions (only used for OpenAI dense vectors)
+# text-embedding-3-small: 1536
+# text-embedding-3-large: 3072
+OPENAI_VECTOR_DIMENSIONS = 1536
+
+# Enable scalar quantization for OpenAI dense vectors
+OPENAI_USE_QUANTIZATION = True
+
+# Alternative index name for OpenAI-based search
+OPENAI_INDEX_NAME = "products-openai-search"
+
+# ============================================================================
+# LLM Configuration
+# ============================================================================
+
+# LLM provider for conversational AI
+# Options:
+# - "openai" - OpenAI GPT models (requires API key)
+# - Add more providers as needed
+LLM_PROVIDER = "openai"
+
+# LLM model for chat (only used if LLM_PROVIDER = "openai")
 # Options:
 # - "gpt-4-turbo-preview" - Most capable, $10/1M input tokens
 # - "gpt-4" - Previous version, $30/1M input tokens
@@ -50,22 +102,6 @@ MAX_TOKENS = 500
 
 # Temperature for LLM (0.0 = deterministic, 1.0 = creative)
 TEMPERATURE = 0.7
-
-# ============================================================================
-# Index Configuration
-# ============================================================================
-
-# Primary index name for vector search
-INDEX_NAME = "products-semantic-search"
-
-# Vector field dimensions (must match embedding model)
-# text-embedding-3-small: 1536
-# text-embedding-3-large: 3072
-# text-embedding-ada-002: 1536
-VECTOR_DIMENSIONS = 1536
-
-# Enable scalar quantization for memory reduction
-USE_QUANTIZATION = True
 
 # Number of shards for the index
 NUMBER_OF_SHARDS = 1

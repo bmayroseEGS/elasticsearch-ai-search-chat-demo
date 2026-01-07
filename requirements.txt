@@ -1,8 +1,9 @@
-# Elasticsearch Python Client
-elasticsearch>=8.0.0,<9.0.0
+# ============================================================================
+# Core Requirements (ELSER-based setup)
+# ============================================================================
 
-# OpenAI API for embeddings and LLM
-openai>=1.0.0
+# Elasticsearch Python Client - Required for all functionality
+elasticsearch>=8.0.0,<9.0.0
 
 # Environment variable management
 python-dotenv>=1.0.0
@@ -10,22 +11,39 @@ python-dotenv>=1.0.0
 # Progress bars for batch operations
 tqdm>=4.65.0
 
-# Data manipulation
-pandas>=2.0.0
-
-# HTTP requests (for alternative APIs)
-requests>=2.31.0
-
-# Jupyter notebooks (optional)
-jupyter>=1.0.0
-ipywidgets>=8.0.0
-
-# Pretty printing
+# Pretty printing and CLI output
 rich>=13.0.0
 
-# JSON handling
-jq>=1.6.0
+# HTTP requests (for alternative APIs if needed)
+requests>=2.31.0
 
-# Testing (optional)
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
+# ============================================================================
+# Optional: OpenAI Integration
+# ============================================================================
+# Only install if you plan to use OpenAI embeddings/LLM as an alternative
+# Uncomment the line below to install:
+# openai>=1.0.0
+
+# ============================================================================
+# Optional: Data Analysis and Notebooks
+# ============================================================================
+# Uncomment if you want to use Jupyter notebooks for interactive exploration
+
+# Data manipulation
+# pandas>=2.0.0
+
+# Jupyter notebooks
+# jupyter>=1.0.0
+# ipywidgets>=8.0.0
+
+# ============================================================================
+# Optional: Development and Testing
+# ============================================================================
+# Uncomment if you're developing or testing the codebase
+
+# JSON handling
+# jq>=1.6.0
+
+# Testing
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
